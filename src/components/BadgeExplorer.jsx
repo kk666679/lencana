@@ -53,8 +53,13 @@ export default function BadgeExplorer() {
       <div>
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Badge Explorer</h1>
-            <p className="text-muted-foreground mt-1">Discover and earn Malaysian heritage badges through interactive learning</p>
+            <div className="flex items-center gap-4">
+              <img src="/logo.png" alt="Lencana Malaysia" className="h-12 w-12" />
+              <div>
+                <h1 className="text-3xl font-bold tracking-tight">Badge Explorer</h1>
+                <p className="text-muted-foreground mt-1">Discover and earn Malaysian heritage badges through interactive learning</p>
+              </div>
+            </div>
           </div>
         </div>
         

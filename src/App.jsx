@@ -11,7 +11,10 @@ function App() {
       <nav className="bg-white shadow-sm border-b">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-blue-800">Lencana Malaysia LMS</h1>
+            <div className="flex items-center gap-3">
+              <img src="/logo.png" alt="Lencana Malaysia" className="h-10 w-10" />
+              <h1 className="text-2xl font-bold text-blue-800">Lencana Malaysia LMS</h1>
+            </div>
             <div className="flex gap-4">
               <button 
                 onClick={() => setActiveView('curriculum')}
