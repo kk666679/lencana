@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const csrf = require('csurf');
+const csrf = require('csrf');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
@@ -27,8 +27,26 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(cookieParser());
 
 // CSRF Protection
-const csrfProtection = csrf({ cookie: true });
-app.use('/api', csrfProtection);
+const tokens = new csrf();
+const csrfProtection = (req, res, next) => {
+  if (['GET', 'HEAD', 'OPTIONS'].includes(req.method)) {
+    return next();
+  }
+  
+  const token = req.headers['x-csrf-token'] || req.body._csrf;
+  const secret = req.session?.csrfSecret || process.env.CSRF_SECRET || 'csrf-secret';
+  
+  if (!tokens.verify(secret, token)) {
+    return res.status(403).json({ error: 'Invalid CSRF token' });
+  }
+  
+  next();
+};
+
+// Skip CSRF for development
+if (process.env.NODE_ENV !== 'development') {
+  app.use('/api', csrfProtection);
+}
 
 // Routes
 app.use('/api/badges', require('./routes/badges'));
