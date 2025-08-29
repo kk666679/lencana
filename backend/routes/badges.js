@@ -1,7 +1,11 @@
 const express = require('express');
 const { neon } = require('@neondatabase/serverless');
 const { authenticateUser, authorizeRole } = require('../middleware/auth');
+const csrf = require('csrf');
 const router = express.Router();
+
+// Initialize CSRF protection
+const csrfProtection = csrf({ cookie: true });
 
 const sql = neon(process.env.DATABASE_URL);
 
@@ -137,13 +141,13 @@ router.get('/', async (req, res) => {
     
     const badges = await sql(query, params);
     res.json(badges.length > 0 ? badges : badgesData);
-  } catch (error) {
+  } catch (_error) {
     res.json(badgesData); // Fallback to static data
   }
 });
 
 // GET /api/badges/:id - Get specific badge
-router.get('/:id', authenticateUser, (req, res) => {
+router.get('/:id', (req, res) => {
   const badge = badgesData.find(b => b.id === req.params.id);
   if (!badge) {
     return res.status(404).json({ error: 'Badge not found' });
@@ -152,15 +156,41 @@ router.get('/:id', authenticateUser, (req, res) => {
 });
 
 // GET /api/badges/categories - Get all categories
-router.get('/meta/categories', (req, res) => {
+router.get('/categories', authenticateUser, (req, res) => {
   const categories = ['All', ...new Set(badgesData.map(badge => badge.category))];
   res.json(categories);
 });
 
 // GET /api/badges/rarities - Get all rarities
-router.get('/meta/rarities', (req, res) => {
+router.get('/rarities', authenticateUser, (req, res) => {
   const rarities = ['All', ...new Set(badgesData.map(badge => badge.rarity))];
   res.json(rarities);
+});
+
+// POST /api/badges - Create new badge (protected)
+router.post('/', authenticateUser, authorizeRole(['educator', 'admin']), csrfProtection, async (req, res) => {
+  try {
+    const { name, description, category, rarity, points } = req.body;
+    
+    // Validate input
+    if (!name || !description || !category || !rarity || !points) {
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
+    
+    const newBadge = {
+      id: `badge-${Date.now()}`,
+      name,
+      description,
+      category,
+      rarity,
+      points: parseInt(points),
+      createdAt: new Date().toISOString()
+    };
+    
+    res.status(201).json(newBadge);
+  } catch (_error) {
+    res.status(500).json({ error: 'Failed to create badge' });
+  }
 });
 
 module.exports = router;

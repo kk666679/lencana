@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const csrf = require('csrf');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
@@ -10,73 +9,52 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Security middleware
-app.use(helmet());
-app.use(rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100 // limit each IP to 100 requests per windowMs
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      scriptSrc: ["'self'"],
+      imgSrc: ["'self'", "data:", "https:"],
+    },
+  },
 }));
+
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  message: 'Too many requests from this IP, please try again later.',
+});
+app.use('/api/', limiter);
 
 // CORS configuration
 app.use(cors({
   origin: process.env.FRONTEND_URL || 'http://localhost:5173',
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-CSRF-Token']
 }));
 
+// Body parsing middleware
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(cookieParser());
 
-// CSRF Protection
-const tokens = new csrf();
-const csrfProtection = (req, res, next) => {
-  if (['GET', 'HEAD', 'OPTIONS'].includes(req.method)) {
-    return next();
-  }
-  
-  const token = req.headers['x-csrf-token'] || req.body._csrf;
-  const secret = req.session?.csrfSecret || process.env.CSRF_SECRET || 'csrf-secret';
-  
-  if (!tokens.verify(secret, token)) {
-    return res.status(403).json({ error: 'Invalid CSRF token' });
-  }
-  
-  next();
-};
+// Test routes one by one
+console.log('Loading routes...');
 
-// Skip CSRF for development
-if (process.env.NODE_ENV !== 'development') {
-  app.use('/api', csrfProtection);
-}
+// Load badges route
+const badgesRouter = require('./routes/badges');
+app.use('/api/badges', badgesRouter);
+console.log('✓ Badges route loaded');
 
-// Routes
-app.use('/api/badges', require('./routes/badges'));
-app.use('/api/users', require('./routes/users'));
-app.use('/api/progress', require('./routes/progress'));
-app.use('/api/curriculum', require('./routes/curriculum'));
-app.use('/api/modules', require('./routes/modules'));
-app.use('/api/upload', require('./routes/upload'));
-app.use('/api/analytics', require('./routes/analytics'));
-app.use('/api/auth', require('./routes/auth'));
+app.get('/', (req, res) => {
+  res.json({ message: 'Lencana API Server', version: '2.0.0' });
+});
 
-// Health check
 app.get('/api/health', (req, res) => {
-  res.json({ 
-    status: 'OK', 
-    timestamp: new Date().toISOString(),
-    version: '2.0.0',
-    environment: process.env.NODE_ENV || 'development'
-  });
-});
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ error: 'Something went wrong!' });
-});
-
-// 404 handler
-app.use('*', (req, res) => {
-  res.status(404).json({ error: 'Route not found' });
+  res.json({ status: 'OK' });
 });
 
 app.listen(PORT, () => {

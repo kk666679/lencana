@@ -1,13 +1,16 @@
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useBadges } from '../hooks/useBadges';
 import { useProgress } from '../hooks/useProgress';
 import { useAchievements } from '../hooks/useAchievements';
 import BadgeDetailModal from './BadgeDetailModal';
 import QuizModal from './QuizModal';
 import AchievementNotification from './AchievementNotification';
+import AnimatedCard from './AnimatedCard';
 import { Progress } from './ui/progress';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Input } from './ui/input';
+import { Button } from './ui/button';
 import { Users, Award, BookOpen } from 'lucide-react';
 
 export default function BadgeExplorer() {
@@ -198,15 +201,20 @@ export default function BadgeExplorer() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredBadges.map(badge => {
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        layout
+      >
+        <AnimatePresence>
+        {filteredBadges.map((badge, index) => {
           const badgeProgress = progress[badge.id];
           const isEarned = badgeProgress?.earned || false;
           
           return (
-            <div 
-              key={badge.id} 
-              className={`group relative bg-card border rounded-lg p-6 cursor-pointer transition-all duration-200 hover:shadow-lg hover:scale-[1.02] ${
+            <AnimatedCard 
+              key={badge.id}
+              delay={index * 0.1}
+              className={`group relative bg-card border rounded-lg p-6 cursor-pointer ${
                 isEarned 
                   ? 'bg-gradient-to-br from-green-50 to-emerald-50 border-green-200 shadow-sm' 
                   : 'hover:border-primary/50 hover:shadow-primary/10'
@@ -249,10 +257,11 @@ export default function BadgeExplorer() {
                   Click to view details →
                 </div>
               </div>
-            </div>
+            </AnimatedCard>
           );
         })}
-      </div>
+        </AnimatePresence>
+      </motion.div>
       
       {/* Educational Impact Section */}
       <div className="mt-12 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-8">

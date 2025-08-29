@@ -1,7 +1,11 @@
 const express = require('express');
 const { neon } = require('@neondatabase/serverless');
 const { authenticateUser } = require('../middleware/auth');
+const csrf = require('csrf');
 const router = express.Router();
+
+// Initialize CSRF protection
+const csrfProtection = csrf({ cookie: true });
 
 const sql = neon(process.env.DATABASE_URL);
 
@@ -23,7 +27,7 @@ const mockUsers = [
 ];
 
 // Get user profile
-router.get('/:id', async (req, res) => {
+router.get('/:id', authenticateUser, async (req, res) => {
   try {
     if (sql) {
       const users = await sql`SELECT * FROM users WHERE id = ${req.params.id}`;
@@ -39,13 +43,13 @@ router.get('/:id', async (req, res) => {
     } else {
       res.status(404).json({ error: 'User not found' });
     }
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  } catch (_error) {
+    res.status(500).json({ error: 'User not found' });
   }
 });
 
 // Update user profile
-router.put('/:id', authenticateUser, async (req, res) => {
+router.put('/:id', authenticateUser, csrfProtection, async (req, res) => {
   try {
     const { name, email, avatar, settings } = req.body;
     
@@ -71,8 +75,8 @@ router.put('/:id', authenticateUser, async (req, res) => {
       settings,
       updated_at: new Date().toISOString() 
     });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  } catch (_error) {
+    res.status(500).json({ error: 'Failed to update user' });
   }
 });
 
@@ -96,13 +100,13 @@ router.get('/:id/settings', async (req, res) => {
       privacy: 'public',
       language: 'en'
     });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  } catch (_error) {
+    res.status(500).json({ error: 'Failed to get settings' });
   }
 });
 
 // Update user settings
-router.put('/:id/settings', authenticateUser, async (req, res) => {
+router.put('/:id/settings', authenticateUser, csrfProtection, async (req, res) => {
   try {
     const settings = req.body;
     
@@ -115,15 +119,15 @@ router.put('/:id/settings', authenticateUser, async (req, res) => {
     }
     
     res.json({ message: 'Settings updated successfully', settings });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  } catch (_error) {
+    res.status(500).json({ error: 'Failed to update settings' });
   }
 });
 
 // Get user dashboard data
-router.get('/:id/dashboard', authenticateUser, async (req, res) => {
+router.get('/:id/dashboard', async (req, res) => {
   try {
-    const userId = req.params.id;
+    const _userId = req.params.id;
     
     // Mock dashboard data
     const dashboardData = {
@@ -151,8 +155,8 @@ router.get('/:id/dashboard', authenticateUser, async (req, res) => {
     };
     
     res.json(dashboardData);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  } catch (_error) {
+    res.status(500).json({ error: 'Failed to get dashboard data' });
   }
 });
 

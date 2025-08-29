@@ -30,7 +30,33 @@
     "quickActions": "Tindakan Pantas",
     "recentActivity": "Aktiviti Terkini",
     "recentBadges": "Lencana Terkini",
-    "subjectProgress": "Kemajuan Subjek"
+    "subjectProgress": "Kemajuan Subjek",
+    "modulesCompleted": "Modul Selesai",
+    "badgesEarned": "Lencana Diperoleh",
+    "totalPoints": "Jumlah Mata",
+    "currentStreak": "Streak Semasa"
+  },
+  "badges": {
+    "explorer": "Penjelajah Lencana",
+    "categories": "Kategori",
+    "rarity": "Kekerapan",
+    "all": "Semua",
+    "earned": "Diperoleh",
+    "notEarned": "Belum Diperoleh",
+    "viewDetails": "Lihat Butiran",
+    "earnBadge": "Peroleh Lencana",
+    "criteria": "Kriteria",
+    "progress": "Kemajuan"
+  },
+  "curriculum": {
+    "dashboard": "Papan Pemuka Kurikulum",
+    "subjects": "Subjek",
+    "modules": "Modul",
+    "quizzes": "Kuiz",
+    "progress": "Kemajuan",
+    "completed": "Selesai",
+    "inProgress": "Dalam Kemajuan",
+    "notStarted": "Belum Dimulakan"
   },
   "settings": {
     "account": "Akaun",
@@ -39,6 +65,17 @@
     "appearance": "Penampilan",
     "security": "Keselamatan",
     "connections": "Sambungan",
-    "saveChanges": "Simpan Perubahan"
+    "saveChanges": "Simpan Perubahan",
+    "profile": "Profil",
+    "preferences": "Keutamaan",
+    "language": "Bahasa",
+    "theme": "Tema"
+  },
+  "hero": {
+    "title": "Lencana Malaysia",
+    "subtitle": "Sistem Pengurusan Pembelajaran Lencana 3D Merentas Kurikulum",
+    "description": "Menginspirasi Identiti Kebangsaan dan Pendidikan Holistik melalui Pembelajaran Interaktif",
+    "getStarted": "Mula Sekarang",
+    "learnMore": "Ketahui Lebih Lanjut"
   }
 }

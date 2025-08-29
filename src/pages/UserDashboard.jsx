@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { User, Award, BookOpen, TrendingUp, Bell, Settings } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Award, BookOpen, TrendingUp, Settings } from 'lucide-react';
 import { useUserBadges, useProgress } from '../hooks/useDatabase';
+import AnimatedCard from '../components/AnimatedCard';
 
 export default function UserDashboard() {
   const { t } = useTranslation();
@@ -32,16 +34,45 @@ export default function UserDashboard() {
   ]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-sm">
+    <motion.div 
+      className="min-h-screen bg-gray-50"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.header 
+        className="bg-white shadow-sm"
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
         <div className="max-w-7xl mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold">{t('nav.dashboard')}</h1>
-          <p className="text-gray-600">{t('dashboard.welcome')}, {user.name}!</p>
+          <motion.h1 
+            className="text-3xl font-bold"
+            initial={{ x: -30 }}
+            animate={{ x: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            {t('nav.dashboard')}
+          </motion.h1>
+          <motion.p 
+            className="text-gray-600"
+            initial={{ x: -30 }}
+            animate={{ x: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            {t('dashboard.welcome')}, {user.name}!
+          </motion.p>
         </div>
-      </header>
+      </motion.header>
 
       <div className="max-w-7xl mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6"
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+        >
           {/* Profile Overview */}
           <div className="lg:col-span-2 space-y-6">
             <div className="bg-white rounded-lg shadow p-6">
@@ -167,8 +198,8 @@ export default function UserDashboard() {
               )}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }

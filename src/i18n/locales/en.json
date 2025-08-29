@@ -30,7 +30,33 @@
     "quickActions": "Quick Actions",
     "recentActivity": "Recent Activity",
     "recentBadges": "Recent Badges",
-    "subjectProgress": "Subject Progress"
+    "subjectProgress": "Subject Progress",
+    "modulesCompleted": "Modules Completed",
+    "badgesEarned": "Badges Earned",
+    "totalPoints": "Total Points",
+    "currentStreak": "Current Streak"
+  },
+  "badges": {
+    "explorer": "Badge Explorer",
+    "categories": "Categories",
+    "rarity": "Rarity",
+    "all": "All",
+    "earned": "Earned",
+    "notEarned": "Not Earned",
+    "viewDetails": "View Details",
+    "earnBadge": "Earn Badge",
+    "criteria": "Criteria",
+    "progress": "Progress"
+  },
+  "curriculum": {
+    "dashboard": "Curriculum Dashboard",
+    "subjects": "Subjects",
+    "modules": "Modules",
+    "quizzes": "Quizzes",
+    "progress": "Progress",
+    "completed": "Completed",
+    "inProgress": "In Progress",
+    "notStarted": "Not Started"
   },
   "settings": {
     "account": "Account",
@@ -39,6 +65,17 @@
     "appearance": "Appearance",
     "security": "Security",
     "connections": "Connections",
-    "saveChanges": "Save Changes"
+    "saveChanges": "Save Changes",
+    "profile": "Profile",
+    "preferences": "Preferences",
+    "language": "Language",
+    "theme": "Theme"
+  },
+  "hero": {
+    "title": "Lencana Malaysia",
+    "subtitle": "Cross-Curricular 3D Badges Learning Management System",
+    "description": "Inspiring National Identity and Holistic Education through Interactive Learning",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More"
   }
 }

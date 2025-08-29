@@ -48,7 +48,6 @@ export default function UserSettings() {
   };
 
   const handleSave = () => {
-    console.log('Saving settings:', settings);
     // API call to save settings
   };
 

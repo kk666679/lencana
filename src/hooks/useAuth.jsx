@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext, useContext } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const AuthContext = createContext();
 

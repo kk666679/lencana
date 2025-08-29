@@ -34,9 +34,13 @@ process.on('SIGINT', () => {
 });
 
 backend.on('close', (code) => {
-  console.log(`Backend server exited with code ${code}`);
+  // Sanitize code to prevent log injection
+  const sanitizedCode = typeof code === 'number' ? code : 'unknown';
+  console.log(`Backend server exited with code ${sanitizedCode}`);
 });
 
 frontend.on('close', (code) => {
-  console.log(`Frontend server exited with code ${code}`);
+  // Sanitize code to prevent log injection
+  const sanitizedCode = typeof code === 'number' ? code : 'unknown';
+  console.log(`Frontend server exited with code ${sanitizedCode}`);
 });

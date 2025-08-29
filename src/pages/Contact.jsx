@@ -1,185 +1,112 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '../components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
-import { Input } from '../components/ui/input';
-import { Form, FormItem, FormLabel, FormControl, FormMessage } from '../components/ui/form';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { motion } from 'framer-motion';
+import AnimatedCard from '../components/AnimatedCard';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission
-  };
-
-  const handleChange = (e) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
-
   return (
-    <div className="container mx-auto py-12 px-4 md:px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold tracking-tight mb-4">Contact Us</h1>
-          <p className="text-muted-foreground text-lg">
-            Get in touch with our team for support, questions, or feedback
+    <motion.div 
+      className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className="container mx-auto px-6 py-12">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        >
+          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+            Contact Us
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Get in touch with our team for support, partnerships, or feedback
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Send us a message</CardTitle>
-              <CardDescription>
-                Fill out the form below and we'll get back to you as soon as possible.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Form onSubmit={handleSubmit}>
-                <FormItem>
-                  <FormLabel htmlFor="name">Name</FormLabel>
-                  <FormControl>
-                    <Input
-                      id="name"
-                      name="name"
-                      placeholder="Your full name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                    />
-                  </FormControl>
-                </FormItem>
+          <AnimatedCard delay={0.3} className="bg-white p-8 rounded-xl shadow-lg">
+            <h2 className="text-2xl font-bold mb-6">Send us a message</h2>
+            <form className="space-y-6">
+              <motion.div
+                initial={{ x: -30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.4 }}
+              >
+                <input 
+                  type="text" 
+                  placeholder="Your Name"
+                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </motion.div>
+              <motion.div
+                initial={{ x: -30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                <input 
+                  type="email" 
+                  placeholder="Your Email"
+                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </motion.div>
+              <motion.div
+                initial={{ x: -30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.6 }}
+              >
+                <textarea 
+                  rows="5" 
+                  placeholder="Your Message"
+                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                ></textarea>
+              </motion.div>
+              <motion.button
+                type="submit"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-lg font-semibold flex items-center justify-center gap-2"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Send size={20} />
+                Send Message
+              </motion.button>
+            </form>
+          </AnimatedCard>
 
-                <FormItem>
-                  <FormLabel htmlFor="email">Email</FormLabel>
-                  <FormControl>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="your.email@example.com"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                    />
-                  </FormControl>
-                </FormItem>
+          <div className="space-y-8">
+            <AnimatedCard delay={0.4} className="bg-white p-6 rounded-xl shadow-lg flex items-center gap-4">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <Mail className="text-blue-600" size={24} />
+              </div>
+              <div>
+                <h3 className="font-semibold">Email</h3>
+                <p className="text-gray-600">support@lencana.my</p>
+              </div>
+            </AnimatedCard>
 
-                <FormItem>
-                  <FormLabel htmlFor="subject">Subject</FormLabel>
-                  <FormControl>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      placeholder="What is this about?"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                    />
-                  </FormControl>
-                </FormItem>
+            <AnimatedCard delay={0.5} className="bg-white p-6 rounded-xl shadow-lg flex items-center gap-4">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                <Phone className="text-green-600" size={24} />
+              </div>
+              <div>
+                <h3 className="font-semibold">Phone</h3>
+                <p className="text-gray-600">+60 3-1234 5678</p>
+              </div>
+            </AnimatedCard>
 
-                <FormItem>
-                  <FormLabel htmlFor="message">Message</FormLabel>
-                  <FormControl>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={5}
-                      className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      placeholder="Tell us more about your inquiry..."
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                    />
-                  </FormControl>
-                </FormItem>
-
-                <Button type="submit" className="w-full">
-                  Send Message
-                </Button>
-              </Form>
-            </CardContent>
-          </Card>
-
-          {/* Contact Information */}
-          <div className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Mail className="h-5 w-5" />
-                  Email Support
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-2">
-                  For general inquiries and support
-                </p>
-                <a href="mailto:support@lencana-malaysia.edu.my" className="text-primary hover:underline">
-                  support@lencana-malaysia.edu.my
-                </a>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Phone className="h-5 w-5" />
-                  Phone Support
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-2">
-                  Available Monday to Friday, 9 AM - 5 PM MYT
-                </p>
-                <a href="tel:+60312345678" className="text-primary hover:underline">
-                  +60 3-1234 5678
-                </a>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <MapPin className="h-5 w-5" />
-                  Office Location
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Ministry of Education Malaysia<br />
-                  Block E8, Complex E<br />
-                  Federal Government Administrative Centre<br />
-                  62604 Putrajaya, Malaysia
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-muted/50">
-              <CardHeader>
-                <CardTitle>Quick Links</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2">
-                <div><Link to="/faq" className="text-primary hover:underline">Frequently Asked Questions</Link></div>
-                <div><Link to="/help" className="text-primary hover:underline">Help Center</Link></div>
-                <div><Link to="/feedback" className="text-primary hover:underline">Submit Feedback</Link></div>
-              </CardContent>
-            </Card>
+            <AnimatedCard delay={0.6} className="bg-white p-6 rounded-xl shadow-lg flex items-center gap-4">
+              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                <MapPin className="text-purple-600" size={24} />
+              </div>
+              <div>
+                <h3 className="font-semibold">Address</h3>
+                <p className="text-gray-600">Kuala Lumpur, Malaysia</p>
+              </div>
+            </AnimatedCard>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

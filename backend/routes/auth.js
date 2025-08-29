@@ -8,7 +8,7 @@ const sql = neon(process.env.DATABASE_URL);
 // Login route
 router.post('/login', async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password: _password } = req.body;
     
     // Mock authentication - replace with real password verification
     const users = await sql`SELECT * FROM users WHERE email = ${email}`;
@@ -37,7 +37,7 @@ router.post('/login', async (req, res) => {
 // Register route
 router.post('/register', async (req, res) => {
   try {
-    const { email, name, password } = req.body;
+    const { email, name, password: _password } = req.body;
     
     const result = await sql`
       INSERT INTO users (email, name, role)

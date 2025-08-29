@@ -1,134 +1,172 @@
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Button } from '../components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
-import { Badge } from '../components/ui/badge';
-import { Trophy, Users, BookOpen, Award } from 'lucide-react';
+import AnimatedCard from '../components/AnimatedCard';
+import { Award, BookOpen, Users, TrendingUp, Star, Zap } from 'lucide-react';
 
 export default function Homepage() {
+  const features = [
+    { icon: Award, title: "3D Badges", desc: "Interactive Malaysian heritage badges" },
+    { icon: BookOpen, title: "Cross-Curricular", desc: "14 subjects integrated learning" },
+    { icon: Users, title: "Collaborative", desc: "Team-based learning activities" },
+    { icon: TrendingUp, title: "Progress Tracking", desc: "Real-time learning analytics" },
+    { icon: Star, title: "Gamified", desc: "Engaging reward systems" },
+    { icon: Zap, title: "Interactive", desc: "Immersive 3D experiences" }
+  ];
+
   return (
-    <div className="flex flex-col min-h-screen">
+    <motion.div 
+      className="min-h-screen"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
       {/* Hero Section */}
-      <section className="py-12 md:py-24 lg:py-32 bg-gradient-to-br from-blue-50 to-purple-50">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-                Discover Malaysian Heritage Through
-                <span className="text-primary"> Interactive Badges</span>
-              </h1>
-              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                Cross-Curricular 3D Badges LMS Platform that transforms Malaysian national honours education into engaging, multi-subject learning experiences.
-              </p>
-            </div>
-            <div className="space-x-4">
+      <section className="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white py-20">
+        <div className="container mx-auto px-6">
+          <motion.div 
+            className="text-center max-w-4xl mx-auto"
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            <motion.h1 
+              className="text-5xl md:text-6xl font-bold mb-6"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              Learn. Earn. <span className="text-yellow-400">Excel.</span>
+            </motion.h1>
+            <motion.p 
+              className="text-xl mb-8 opacity-90"
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 0.9 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+            >
+              Malaysia's premier cross-curricular learning platform with interactive 3D badges
+            </motion.p>
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+            >
               <Link to="/badges">
-                <Button size="lg">Start Learning</Button>
+                <motion.button 
+                  className="px-8 py-4 bg-yellow-500 text-black font-semibold rounded-lg text-lg"
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(255, 204, 0, 0.4)" }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Explore Badges
+                </motion.button>
               </Link>
-              <Link to="/badges">
-                <Button variant="outline" size="lg">Explore Badges</Button>
+              <Link to="/about">
+                <motion.button 
+                  className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg text-lg backdrop-blur-sm"
+                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Learn More
+                </motion.button>
               </Link>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-12 md:py-24 lg:py-32">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Platform Features</h2>
-              <p className="max-w-[900px] text-muted-foreground md:text-xl">
-                Comprehensive learning tools designed for Malaysian curriculum alignment
-              </p>
-            </div>
-          </div>
-          <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-            <div className="flex flex-col justify-center space-y-4">
-              <div className="grid gap-6">
-                <div className="flex items-center gap-4">
-                  <Trophy className="h-8 w-8 text-merdeka-600" />
-                  <div>
-                    <h3 className="text-xl font-bold">6 Unique Badges</h3>
-                    <p className="text-muted-foreground">Interactive 3D badges with Malaysian heritage themes</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Users className="h-8 w-8 text-primary" />
-                  <div>
-                    <h3 className="text-xl font-bold">Cross-Curricular Learning</h3>
-                    <p className="text-muted-foreground">14 subjects integrated with KSSR & KSSM alignment</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <BookOpen className="h-8 w-8 text-purple-600" />
-                  <div>
-                    <h3 className="text-xl font-bold">Interactive Quizzes</h3>
-                    <p className="text-muted-foreground">Earn Merdeka Points through engaging assessments</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-center">
-              <div className="relative">
-                <img src="/logo.png" alt="Platform Preview" className="h-64 w-64 object-contain" />
-                <div className="absolute -top-4 -right-4 w-16 h-16 bg-merdeka-500 rounded-full flex items-center justify-center animate-pulse">
-                  <Trophy className="h-8 w-8 text-white" />
-                </div>
-                <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-primary rounded-full flex items-center justify-center animate-bounce">
-                  <Award className="h-6 w-6 text-white" />
-                </div>
-              </div>
-            </div>
+      {/* Features Grid */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            <h2 className="text-4xl font-bold mb-4">Why Choose Lencana Malaysia?</h2>
+            <p className="text-xl text-gray-600">Innovative features designed for Malaysian education</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <AnimatedCard 
+                key={feature.title}
+                delay={0.1 * index}
+                className="bg-white p-8 rounded-xl shadow-lg text-center"
+              >
+                <motion.div 
+                  className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <feature.icon className="text-white" size={32} />
+                </motion.div>
+                <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
+                <p className="text-gray-600">{feature.desc}</p>
+              </AnimatedCard>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-muted/50">
-        <div className="container px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="space-y-2">
-              <div className="text-3xl font-bold text-primary">6</div>
-              <div className="text-sm text-muted-foreground">Unique Badges</div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-3xl font-bold text-merdeka-600">14</div>
-              <div className="text-sm text-muted-foreground">Subjects Covered</div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-3xl font-bold text-purple-600">100%</div>
-              <div className="text-sm text-muted-foreground">KSSR/KSSM Aligned</div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-3xl font-bold text-green-600">3D</div>
-              <div className="text-sm text-muted-foreground">Interactive Models</div>
-            </div>
+      <section className="py-20 bg-gradient-to-r from-green-600 to-blue-600 text-white">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+              { number: "50+", label: "Interactive Badges" },
+              { number: "14", label: "Subject Areas" },
+              { number: "1000+", label: "Active Students" },
+              { number: "95%", label: "Satisfaction Rate" }
+            ].map((stat, index) => (
+              <motion.div 
+                key={stat.label}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.2 + index * 0.1, duration: 0.6 }}
+              >
+                <motion.div 
+                  className="text-4xl md:text-5xl font-bold mb-2"
+                  initial={{ y: 20 }}
+                  animate={{ y: 0 }}
+                  transition={{ delay: 0.4 + index * 0.1 }}
+                >
+                  {stat.number}
+                </motion.div>
+                <div className="text-lg opacity-90">{stat.label}</div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-24 lg:py-32">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Ready to Start Learning?</h2>
-              <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                Join thousands of students exploring Malaysian heritage through interactive badge-based learning.
-              </p>
-            </div>
-            <div className="space-x-4">
-              <Link to="/badges">
-                <Button size="lg">Get Started Free</Button>
-              </Link>
-              <Link to="/about">
-                <Button variant="outline" size="lg">Learn More</Button>
-              </Link>
-            </div>
-          </div>
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 text-center">
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            <h2 className="text-4xl font-bold mb-6">Ready to Start Learning?</h2>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              Join thousands of Malaysian students already earning badges and excelling in their studies
+            </p>
+            <Link to="/signup">
+              <motion.button 
+                className="px-12 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-lg text-lg"
+                whileHover={{ 
+                  scale: 1.05, 
+                  boxShadow: "0 20px 40px rgba(147, 51, 234, 0.3)" 
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get Started Today
+              </motion.button>
+            </Link>
+          </motion.div>
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 }

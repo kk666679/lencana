@@ -1,23 +1,39 @@
 const express = require('express');
+const { authenticateUser } = require('../middleware/auth');
+const csrf = require('csrf');
 const router = express.Router();
+
+// Initialize CSRF protection
+const csrfProtection = csrf({ cookie: true });
 
 // Mock user progress storage
 let userProgress = {};
 
-// GET /api/progress/:userId - Get user progress
-router.get('/:userId', (req, res) => {
+// Secure property validation to prevent prototype pollution
+const isValidProperty = (prop) => {
+  return prop && typeof prop === 'string' && 
+         !['__proto__', 'constructor', 'prototype'].includes(prop);
+};
+
+// GET /api/progress/user/:userId - Get user progress
+router.get('/user/:userId', (req, res) => {
   const { userId } = req.params;
   const progress = userProgress[userId] || {};
   res.json(progress);
 });
 
-// POST /api/progress/:userId - Update user progress
-router.post('/:userId', (req, res) => {
+// POST /api/progress/user/:userId - Update user progress
+router.post('/user/:userId', authenticateUser, csrfProtection, (req, res) => {
   const { userId } = req.params;
   const { badgeId, progress, earned } = req.body;
   
+  // Validate properties to prevent prototype pollution
+  if (!isValidProperty(userId) || !isValidProperty(badgeId)) {
+    return res.status(400).json({ error: 'Invalid property names' });
+  }
+  
   if (!userProgress[userId]) {
-    userProgress[userId] = {};
+    userProgress[userId] = Object.create(null); // Create object without prototype
   }
   
   userProgress[userId][badgeId] = {
@@ -29,8 +45,8 @@ router.post('/:userId', (req, res) => {
   res.json(userProgress[userId][badgeId]);
 });
 
-// GET /api/progress/:userId/stats - Get user statistics
-router.get('/:userId/stats', (req, res) => {
+// GET /api/progress/stats/:userId - Get user statistics
+router.get('/stats/:userId', (req, res) => {
   const { userId } = req.params;
   const progress = userProgress[userId] || {};
   
@@ -38,9 +54,8 @@ router.get('/:userId/stats', (req, res) => {
   const totalBadges = Object.keys(progress).length;
   const totalPoints = Object.entries(progress)
     .filter(([, badge]) => badge.earned)
-    .reduce((sum, [badgeId]) => {
-      // Mock points calculation - replace with actual badge data lookup
-      return sum + 100; // Default points
+    .reduce((sum, [_badgeId]) => {
+      return sum + 100;
     }, 0);
   
   res.json({
@@ -50,5 +65,6 @@ router.get('/:userId/stats', (req, res) => {
     totalPoints
   });
 });
+
 
 module.exports = router;
