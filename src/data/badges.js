@@ -1,21 +1,51 @@
 export const badges = [
   {
-    id: 'knowledge-seeker',
-    name: 'Knowledge Seeker',
-    description: 'Awarded to learners who demonstrate exceptional curiosity and dedication to acquiring new knowledge across various subjects.',
-    longDescription: 'The Knowledge Seeker badge recognizes students who consistently show enthusiasm for learning, ask thoughtful questions, and actively seek to understand complex concepts. Recipients of this badge demonstrate a growth mindset and inspire others through their intellectual curiosity.',
+    id: 'datuk-seri-maharaja-lela',
+    name: 'Datuk Seri Maharaja Lela',
+    description: 'Highest federal award recognizing exceptional service to the nation and embodiment of Malaysian values.',
+    longDescription: 'The Datuk Seri Maharaja Lela represents the pinnacle of national service, awarded to individuals who have made extraordinary contributions to Malaysia. This badge connects students to the highest ideals of citizenship, service, and national identity.',
     criteria: [
-      'Complete at least 5 learning modules with distinction',
-      'Demonstrate active participation in discussions',
-      'Show evidence of independent research and learning',
-      'Help peers understand difficult concepts'
+      'Complete cross-curricular project on Malaysian national heroes',
+      'Demonstrate understanding of Rukun Negara principles',
+      'Lead community service initiative',
+      'Present bilingual research on national identity'
     ],
-    color: '#2E8B57',
-    image: '/src/assets/knowledge_seeker_badge.png',
-    model: '/src/assets/knowledge_seeker_badge.glb',
-    category: 'Academic Excellence',
-    rarity: 'Common',
-    points: 100
+    color: '#FFD700',
+    image: '/src/assets/datuk_seri_maharaja_lela.png',
+    model: '/src/assets/datuk_seri_maharaja_lela.glb',
+    category: 'National Identity',
+    rarity: 'Legendary',
+    points: 500,
+    curriculum: {
+      subjects: ['Sejarah', 'Pendidikan Sivik', 'Bahasa Malaysia', 'English'],
+      levels: ['Tingkatan 4', 'Tingkatan 5'],
+      kssr_alignment: 'Theme: Malaysian Identity and Heritage',
+      kssm_alignment: 'Standard 2.1: National Unity and Integration'
+    },
+    learning_outcomes: [
+      'Analyze the significance of national honors in Malaysian society',
+      'Demonstrate understanding of civic responsibility and national service',
+      'Apply Rukun Negara principles in daily life',
+      'Communicate effectively in multiple languages about national identity'
+    ],
+    cross_curricular_activities: [
+      {
+        subject: 'Sejarah',
+        activity: 'Research historical recipients and their contributions to independence'
+      },
+      {
+        subject: 'Bahasa Malaysia',
+        activity: 'Write reflective essay on the meaning of national service'
+      },
+      {
+        subject: 'English',
+        activity: 'Present findings to international audience via video project'
+      },
+      {
+        subject: 'Pendidikan Sivik',
+        activity: 'Design community service project inspired by award recipients'
+      }
+    ]
   },
   {
     id: 'collaborator',

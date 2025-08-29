@@ -1,8 +1,8 @@
-# Lencana Malaysia: Gamified Explorer 🇲🇾
+# Lencana Malaysia: Cross-Curricular 3D Badges LMS Platform 🇲🇾
 
-**Discover, Learn, and Earn the Honors of Malaysia**
+**A Cross-Curricular 3D Badges for Learning Management System Platform to Inspire National Identity and Holistic Education**
 
-A progressive web app (PWA) that transforms learning about Malaysian national badges, honors, and awards into an engaging and rewarding adventure. Go beyond reading—experience the history and significance through interactive challenges and collection.
+An innovative Learning Management System (LMS) module that integrates 3D interactive badge-based learning to foster national identity and holistic education. Designed to align with Malaysia's national curriculum (KSSR & KSSM), this platform uses gamification, immersive storytelling, and digital representations of national honours to make civic values and multidisciplinary learning engaging and meaningful.
 
 **Live Demo:** [https://lencana-malaysia.vercel.app/](https://lencana-malaysia.vercel.app/)
 
@@ -49,7 +49,7 @@ Lencana Malaysia is not just an information repository; it's a gamified learning
 
 ### Prerequisites
 
-* A modern web browser (Chrome, Firefox, Safari, Edge)
+* A modern web browser (Chrome, Firbefox, Safari, Edge)
 * Node.js 18+ (if running locally)
 
 ### Running Locally
