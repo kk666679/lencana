@@ -1,11 +1,68 @@
 # Lencana Malaysia: Cross-Curricular 3D Badges LMS Platform 🇲🇾
 
+[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/kk666679/lencana)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-brightgreen.svg)](https://nodejs.org/)
+[![React](https://img.shields.io/badge/React-19-blue.svg)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-Build-orange.svg)](https://vitejs.dev/)
+
 **A Cross-Curricular 3D Badges Learning Management System Platform to Inspire National Identity and Holistic Education**
 
 An innovative Learning Management System (LMS) that integrates 3D interactive badge-based learning to foster national identity and holistic education. Designed to align with Malaysia's national curriculum (KSSR & KSSM), this platform uses gamification, immersive storytelling, and digital representations of Malaysian national honours to make civic values and multidisciplinary learning engaging and meaningful.
 
 **Version:** 2.0.0 - Cross-Curricular LMS Platform  
-**Live Demo:** [https://lencana-malaysia.vercel.app/](https://lencana-malaysia.vercel.app/)
+**Live Demo:** [https://lencana.vercel.app/](https://lencana.vercel.app/)
+
+---
+
+## 🖼️ UI Previews
+
+<p align="center">
+  <img src="https://oq1gkkfo4q0hj5xi.public.blob.vercel-storage.com/images/lencana-0.JPG" alt="Lencana Badge 0" width="220" />
+  <img src="https://oq1gkkfo4q0hj5xi.public.blob.vercel-storage.com/images/lencana-1.JPG" alt="Lencana Badge 1" width="220" />
+  <img src="https://oq1gkkfo4q0hj5xi.public.blob.vercel-storage.com/images/lencana-2.JPG" alt="Lencana Badge 2" width="220" />
+  <img src="https://oq1gkkfo4q0hj5xi.public.blob.vercel-storage.com/images/lencana-3.JPG" alt="Lencana Badge 3" width="220" />
+</p>
+
+---
+
+![Lencana Malaysia App Preview](https://via.placeholder.com/800x400?text=Interactive+Preview+of+Lencana+Malaysia+App)  
+*Caption: Explore the rich history of Malaysian honors and track your learning progress.*
+# Lencana Malaysia: Cross-Curricular 3D Badges LMS Platform 🇲🇾
+
+[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/kk666679/lencana)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-brightgreen.svg)](https://nodejs.org/)
+[![React](https://img.shields.io/badge/React-19-blue.svg)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-Build-orange.svg)](https://vitejs.dev/)
+
+**A Cross-Curricular 3D Badges Learning Management System Platform to Inspire National Identity and Holistic Education**
+
+An innovative Learning Management System (LMS) that integrates 3D interactive badge-based learning to foster national identity and holistic education. Designed to align with Malaysia's national curriculum (KSSR & KSSM), this platform uses gamification, immersive storytelling, and digital representations of Malaysian national honours to make civic values and multidisciplinary learning engaging and meaningful.
+
+**Version:** 2.0.0 - Cross-Curricular LMS Platform  
+**Live Demo:** [https://lencana.vercel.app/](https://lencana.vercel.app/)
+
+---
+
+## 🖼️ Badge Previews
+
+<p align="center">
+  <img src="https://oq1gkkfo4q0hj5xi.public.blob.vercel-storage.com/images/lencana-0.JPG" alt="Lencana Badge 0" width="220" />
+  <img src="https://oq1gkkfo4q0hj5xi.public.blob.vercel-storage.com/images/lencana-1.JPG" alt="Lencana Badge 1" width="220" />
+  <img src="https://oq1gkkfo4q0hj5xi.public.blob.vercel-storage.com/images/lencana-2.JPG" alt="Lencana Badge 2" width="220" />
+  <img src="https://oq1gkkfo4q0hj5xi.public.blob.vercel-storage.com/images/lencana-3.JPG" alt="Lencana Badge 3" width="220" />
+</p>
+
+---
+
+![Lencana Malaysia App Preview](https://via.placeholder.com/800x400?text=Interactive+Preview+of+Lencana+Malaysia+App)  
+*Caption: Explore the rich history of Malaysian honors and track your learning progress.*
+
+
+**Version:** 2.0.0 - Cross-Curricular LMS Platform  
+**Live Demo:** [https://lencana.vercel.app/](https://lencana.vercel.app/)
+
 
 ---
 
