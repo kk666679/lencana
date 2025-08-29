@@ -143,7 +143,7 @@ router.get('/', async (req, res) => {
 });
 
 // GET /api/badges/:id - Get specific badge
-router.get('/:id', (req, res) => {
+router.get('/:id', authenticateUser, (req, res) => {
   const badge = badgesData.find(b => b.id === req.params.id);
   if (!badge) {
     return res.status(404).json({ error: 'Badge not found' });

@@ -21,7 +21,8 @@
     "db:studio": "prisma studio",
     "db:setup": "node scripts/setup-db.js",
     "modules:setup": "node scripts/setup-modules.js",
-    "neon:setup": "node scripts/setup-neon-db.js"
+    "neon:setup": "node scripts/setup-neon-db.js",
+    "assets:analyze": "node scripts/optimize-assets.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",

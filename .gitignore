@@ -14,5 +14,3 @@ out/
 # Build output
 dist/
 .vercel
-
-/src/generated/prisma

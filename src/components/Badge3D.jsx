@@ -1,39 +1,49 @@
-import { useRef } from 'react';
+import { useRef, Suspense } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
 
-export default function Badge3D({ url, position = [0, 0, 0], scale = 1, rotation = [0, 0, 0], animate = true }) {
+function BadgeModel({ url, position, scale, rotation, animate }) {
   const meshRef = useRef();
   
-  // Use fallback for missing GLB files
-  let scene;
   try {
-    const gltf = useGLTF(url);
-    scene = gltf.scene;
+    const { scene } = useGLTF(url);
+    
+    useFrame((state) => {
+      if (meshRef.current && animate) {
+        meshRef.current.rotation.y += 0.01;
+        meshRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1;
+      }
+    });
+
+    return (
+      <primitive
+        ref={meshRef}
+        object={scene.clone()}
+        position={position}
+        scale={scale}
+        rotation={rotation}
+      />
+    );
   } catch (error) {
     console.warn('GLB file not found:', url);
-    return null;
+    return (
+      <mesh ref={meshRef} position={position} scale={scale} rotation={rotation}>
+        <boxGeometry args={[1, 1, 0.2]} />
+        <meshStandardMaterial color="#FFD700" />
+      </mesh>
+    );
   }
-
-  useFrame((state) => {
-    if (meshRef.current && animate) {
-      meshRef.current.rotation.y += 0.01;
-      meshRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1;
-    }
-  });
-
-  return (
-    <primitive
-      ref={meshRef}
-      object={scene.clone()}
-      position={position}
-      scale={scale}
-      rotation={rotation}
-    />
-  );
 }
 
-// Preload GLB files (commented out until files are available)
-// useGLTF.preload('/models/badge-gold.glb');
-// useGLTF.preload('/models/badge-silver.glb');
-// useGLTF.preload('/models/badge-bronze.glb');
+export default function Badge3D({ url, position = [0, 0, 0], scale = 1, rotation = [0, 0, 0], animate = true }) {
+  return (
+    <Suspense fallback={
+      <mesh position={position} scale={scale} rotation={rotation}>
+        <boxGeometry args={[1, 1, 0.2]} />
+        <meshStandardMaterial color="#cccccc" />
+      </mesh>
+    }>
+      <BadgeModel url={url} position={position} scale={scale} rotation={rotation} animate={animate} />
+    </Suspense>
+  );
+}

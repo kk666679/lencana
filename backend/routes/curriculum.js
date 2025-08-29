@@ -1,4 +1,5 @@
 const express = require('express');
+const { authenticateUser } = require('../middleware/auth');
 const router = express.Router();
 
 // Curriculum-aligned badges with Malaysian national honors
@@ -110,7 +111,7 @@ router.get('/levels', (req, res) => {
 });
 
 // POST /api/curriculum/assessment - Submit assessment for badge activity
-router.post('/assessment', (req, res) => {
+router.post('/assessment', authenticateUser, (req, res) => {
   const { userId, badgeId, activityId, submission, score } = req.body;
   
   // Mock assessment storage - replace with actual database

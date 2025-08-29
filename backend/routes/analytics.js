@@ -1,11 +1,12 @@
 const express = require('express');
 const { neon } = require('@neondatabase/serverless');
+const { authenticateUser } = require('../middleware/auth');
 const router = express.Router();
 
 const sql = neon(process.env.DATABASE_URL);
 
 // Get module analytics
-router.get('/modules/:id', async (req, res) => {
+router.get('/modules/:id', authenticateUser, async (req, res) => {
   try {
     const moduleId = req.params.id;
     
@@ -38,7 +39,7 @@ router.get('/modules/:id', async (req, res) => {
 });
 
 // Get user progress analytics
-router.get('/users/:id/progress', async (req, res) => {
+router.get('/users/:id/progress', authenticateUser, async (req, res) => {
   try {
     const userId = req.params.id;
     
@@ -73,7 +74,7 @@ router.get('/users/:id/progress', async (req, res) => {
 });
 
 // Track module access
-router.post('/track', async (req, res) => {
+router.post('/track', authenticateUser, async (req, res) => {
   try {
     const { moduleId, userId, timeSpent, completed, score } = req.body;
     
@@ -95,7 +96,7 @@ router.post('/track', async (req, res) => {
 });
 
 // Get platform overview
-router.get('/overview', async (req, res) => {
+router.get('/overview', authenticateUser, async (req, res) => {
   try {
     const stats = await sql`
       SELECT 

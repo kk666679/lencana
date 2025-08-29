@@ -121,7 +121,7 @@ router.put('/:id/settings', authenticateUser, async (req, res) => {
 });
 
 // Get user dashboard data
-router.get('/:id/dashboard', async (req, res) => {
+router.get('/:id/dashboard', authenticateUser, async (req, res) => {
   try {
     const userId = req.params.id;
     

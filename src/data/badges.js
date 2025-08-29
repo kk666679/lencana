@@ -11,8 +11,8 @@ export const badges = [
       'Present bilingual research on national identity'
     ],
     color: '#FFD700',
-    image: '/src/assets/datuk_seri_maharaja_lela.png',
-    model: '/src/assets/datuk_seri_maharaja_lela.glb',
+    image: '/src/assets/achiever_badge.png',
+    model: '/src/assets/achiever_badge.glb',
     category: 'National Identity',
     rarity: 'Legendary',
     points: 500,
