@@ -56,17 +56,16 @@ Lencana Malaysia is a comprehensive **Cross-Curricular Learning Management Syste
 ### 💻 System Components
 ```
 lencana-malaysia/
-├── frontend/          # React + Vite frontend application
-│   ├── src/
-│   │   ├── components/   # UI components (CurriculumDashboard, BadgeExplorer)
-│   │   ├── data/         # Curriculum-aligned badge data
-│   │   └── assets/       # 3D models and badge images
-│   ├── hooks/          # React hooks for data management
-│   └── lib/            # API client and utilities
-├── backend/           # Express.js API server
-│   ├── routes/        # API endpoints (badges, curriculum, progress)
-│   └── server.js      # Main server configuration
-└── docs/              # Documentation and guides
+├── src/
+│   ├── components/   # UI components (CurriculumDashboard, BadgeExplorer)
+│   ├── data/         # Curriculum-aligned badge data
+│   └── assets/       # 3D models and badge images
+├── hooks/            # React hooks for data management
+├── lib/              # API client and utilities
+├── backend/          # Express.js API server
+│   ├── routes/       # API endpoints (badges, curriculum, progress)
+│   └── server.js     # Main server configuration
+└── Documentation files
 ```
 
 ### 🔄 Key Features
@@ -154,9 +153,9 @@ npm run preview
 
 ## 📝 Documentation
 
-- **[Implementation Guide](docs/README_IMPLEMENTATION.md)** - Technical setup and architecture
-- **[Curriculum Alignment](docs/CURRICULUM_ALIGNMENT.md)** - Detailed KSSR/KSSM integration
-- **[Cleanup Summary](docs/CLEANUP_SUMMARY.md)** - Project optimization details
+- **[Implementation Guide](README_IMPLEMENTATION.md)** - Technical setup and architecture
+- **[Curriculum Alignment](CURRICULUM_ALIGNMENT.md)** - Detailed KSSR/KSSM integration
+- **[Cleanup Summary](CLEANUP_SUMMARY.md)** - Project optimization details
 
 ## 🤝 Contributing
 
