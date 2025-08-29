@@ -69,8 +69,13 @@ lencana-malaysia/
 ```
 
 ### 🔄 Key Features
+- **6 Unique Badges**: Knowledge Seeker, Collaborator, Innovator, Community Leader, Mentor, Achiever
+- **3D GLB Models**: Interactive rotating badges with proper lighting
+- **Modal Details**: Comprehensive information including earning criteria
+- **Smart Filtering**: Search, category, and rarity filters
+- **Statistics Dashboard**: Overview of total badges, categories, points, and rarity levels
+- **Educational Impact Section**: Information about Malaysian educational values
 - **Curriculum Dashboard**: Teacher interface with KSSR/KSSM alignment tracking
-- **Badge Explorer**: Student interface for interactive 3D badge exploration
 - **Assessment System**: Progress tracking and cross-curricular evaluation
 - **Multi-Language Support**: Bahasa Malaysia, English, Mandarin, Tamil ready
 - **Offline Capability**: PWA functionality for rural and low-connectivity areas
@@ -118,8 +123,10 @@ npm run preview
 
 ### Frontend
 * **Framework**: React 19 + Vite
-* **UI Components**: Radix UI + Tailwind CSS
-* **3D Graphics**: Three.js + React Three Fiber
+* **3D Rendering**: Three.js and React Three Fiber
+* **UI Design**: Responsive design with Tailwind CSS
+* **UI Components**: Modern components from shadcn/ui
+* **Performance**: Optimized for performance and accessibility
 * **State Management**: React Hooks + Context API
 
 ### Backend
@@ -127,6 +134,13 @@ npm run preview
 * **API**: RESTful endpoints for curriculum management
 * **Data**: JSON-based curriculum and badge data
 * **Authentication**: Ready for integration
+
+### Technical Implementation
+* **Built with**: React + Vite for fast development
+* **3D Models**: Interactive GLB models with proper lighting
+* **Responsive**: Mobile-first design approach
+* **Accessibility**: WCAG compliant components
+* **Performance**: Code splitting and lazy loading
 
 ### Deployment
 * **Frontend**: Vercel/Netlify compatible
