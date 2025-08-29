@@ -70,7 +70,15 @@ export default function Homepage() {
               </div>
             </div>
             <div className="flex justify-center">
-              <img src="/logo.png" alt="Platform Preview" className="h-64 w-64 object-contain" />
+              <div className="relative">
+                <img src="/logo.png" alt="Platform Preview" className="h-64 w-64 object-contain" />
+                <div className="absolute -top-4 -right-4 w-16 h-16 bg-merdeka-500 rounded-full flex items-center justify-center animate-pulse">
+                  <Trophy className="h-8 w-8 text-white" />
+                </div>
+                <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-primary rounded-full flex items-center justify-center animate-bounce">
+                  <Award className="h-6 w-6 text-white" />
+                </div>
+              </div>
             </div>
           </div>
         </div>

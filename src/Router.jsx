@@ -11,6 +11,7 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import QuizCenter from './pages/QuizCenter';
 
 export default function Router() {
   return (
@@ -29,6 +30,7 @@ export default function Router() {
             <Route path="/terms" element={<Terms />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/quiz" element={<QuizCenter />} />
           </Routes>
         </main>
         <Footer />

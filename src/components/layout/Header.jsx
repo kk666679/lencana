@@ -18,6 +18,7 @@ export default function Header() {
           <Link to="/" className="text-sm font-medium hover:text-primary transition-colors">Home</Link>
           <Link to="/badges" className="text-sm font-medium hover:text-primary transition-colors">Badges</Link>
           <Link to="/curriculum" className="text-sm font-medium hover:text-primary transition-colors">Curriculum</Link>
+          <Link to="/quiz" className="text-sm font-medium hover:text-primary transition-colors">Quizzes</Link>
           <Link to="/about" className="text-sm font-medium hover:text-primary transition-colors">About</Link>
           <Link to="/faq" className="text-sm font-medium hover:text-primary transition-colors">FAQ</Link>
           <Link to="/contact" className="text-sm font-medium hover:text-primary transition-colors">Contact</Link>
@@ -48,6 +49,7 @@ export default function Header() {
             <Link to="/" className="block text-sm font-medium hover:text-primary">Home</Link>
             <Link to="/badges" className="block text-sm font-medium hover:text-primary">Badges</Link>
             <Link to="/curriculum" className="block text-sm font-medium hover:text-primary">Curriculum</Link>
+            <Link to="/quiz" className="block text-sm font-medium hover:text-primary">Quizzes</Link>
             <Link to="/about" className="block text-sm font-medium hover:text-primary">About</Link>
             <Link to="/faq" className="block text-sm font-medium hover:text-primary">FAQ</Link>
             <Link to="/contact" className="block text-sm font-medium hover:text-primary">Contact</Link>
