@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
@@ -20,8 +21,12 @@ export default function Homepage() {
               </p>
             </div>
             <div className="space-x-4">
-              <Button size="lg">Start Learning</Button>
-              <Button variant="outline" size="lg">Explore Badges</Button>
+              <Link to="/badges">
+                <Button size="lg">Start Learning</Button>
+              </Link>
+              <Link to="/badges">
+                <Button variant="outline" size="lg">Explore Badges</Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -106,8 +111,12 @@ export default function Homepage() {
               </p>
             </div>
             <div className="space-x-4">
-              <Button size="lg">Get Started Free</Button>
-              <Button variant="outline" size="lg">Learn More</Button>
+              <Link to="/badges">
+                <Button size="lg">Get Started Free</Button>
+              </Link>
+              <Link to="/about">
+                <Button variant="outline" size="lg">Learn More</Button>
+              </Link>
             </div>
           </div>
         </div>

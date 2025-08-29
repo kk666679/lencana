@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Menu, X } from 'lucide-react';
 
@@ -14,16 +15,21 @@ export default function Header() {
         </div>
 
         <nav className="hidden md:flex items-center gap-6">
-          <a href="/" className="text-sm font-medium hover:text-primary transition-colors">Home</a>
-          <a href="/badges" className="text-sm font-medium hover:text-primary transition-colors">Badges</a>
-          <a href="/about" className="text-sm font-medium hover:text-primary transition-colors">About</a>
-          <a href="/faq" className="text-sm font-medium hover:text-primary transition-colors">FAQ</a>
-          <a href="/contact" className="text-sm font-medium hover:text-primary transition-colors">Contact</a>
+          <Link to="/" className="text-sm font-medium hover:text-primary transition-colors">Home</Link>
+          <Link to="/badges" className="text-sm font-medium hover:text-primary transition-colors">Badges</Link>
+          <Link to="/curriculum" className="text-sm font-medium hover:text-primary transition-colors">Curriculum</Link>
+          <Link to="/about" className="text-sm font-medium hover:text-primary transition-colors">About</Link>
+          <Link to="/faq" className="text-sm font-medium hover:text-primary transition-colors">FAQ</Link>
+          <Link to="/contact" className="text-sm font-medium hover:text-primary transition-colors">Contact</Link>
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" size="sm">Log In</Button>
-          <Button size="sm">Sign Up</Button>
+          <Link to="/login">
+            <Button variant="ghost" size="sm">Log In</Button>
+          </Link>
+          <Link to="/signup">
+            <Button size="sm">Sign Up</Button>
+          </Link>
         </div>
 
         <Button
@@ -39,14 +45,19 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md:hidden border-t bg-background">
           <nav className="container py-4 space-y-3">
-            <a href="/" className="block text-sm font-medium hover:text-primary">Home</a>
-            <a href="/badges" className="block text-sm font-medium hover:text-primary">Badges</a>
-            <a href="/about" className="block text-sm font-medium hover:text-primary">About</a>
-            <a href="/faq" className="block text-sm font-medium hover:text-primary">FAQ</a>
-            <a href="/contact" className="block text-sm font-medium hover:text-primary">Contact</a>
+            <Link to="/" className="block text-sm font-medium hover:text-primary">Home</Link>
+            <Link to="/badges" className="block text-sm font-medium hover:text-primary">Badges</Link>
+            <Link to="/curriculum" className="block text-sm font-medium hover:text-primary">Curriculum</Link>
+            <Link to="/about" className="block text-sm font-medium hover:text-primary">About</Link>
+            <Link to="/faq" className="block text-sm font-medium hover:text-primary">FAQ</Link>
+            <Link to="/contact" className="block text-sm font-medium hover:text-primary">Contact</Link>
             <div className="pt-3 space-y-2">
-              <Button variant="ghost" size="sm" className="w-full">Log In</Button>
-              <Button size="sm" className="w-full">Sign Up</Button>
+              <Link to="/login">
+                <Button variant="ghost" size="sm" className="w-full">Log In</Button>
+              </Link>
+              <Link to="/signup">
+                <Button size="sm" className="w-full">Sign Up</Button>
+              </Link>
             </div>
           </nav>
         </div>

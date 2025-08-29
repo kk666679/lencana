@@ -200,7 +200,6 @@ This project is licensed under the **MIT License** - see the [LICENSE.md](LICENS
 
 ---
 
-**Built with ❤️ for Malaysian Education**  
 *Inspiring National Identity and Holistic Education through Cross-Curricular 3D Badges*
 
 **Repository**: [https://github.com/kk666679/lencana](https://github.com/kk666679/lencana)  

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
   return (
     <footer className="border-t bg-muted/50">
@@ -16,27 +18,27 @@ export default function Footer() {
           <div className="space-y-3">
             <h4 className="text-sm font-semibold">Platform</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="/badges" className="hover:text-foreground transition-colors">Badge Explorer</a></li>
-              <li><a href="/curriculum" className="hover:text-foreground transition-colors">Curriculum</a></li>
-              <li><a href="/achievements" className="hover:text-foreground transition-colors">Achievements</a></li>
+              <li><Link to="/badges" className="hover:text-foreground transition-colors">Badge Explorer</Link></li>
+              <li><Link to="/curriculum" className="hover:text-foreground transition-colors">Curriculum</Link></li>
+              <li><Link to="/achievements" className="hover:text-foreground transition-colors">Achievements</Link></li>
             </ul>
           </div>
           
           <div className="space-y-3">
             <h4 className="text-sm font-semibold">Support</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="/faq" className="hover:text-foreground transition-colors">FAQ</a></li>
-              <li><a href="/contact" className="hover:text-foreground transition-colors">Contact</a></li>
-              <li><a href="/help" className="hover:text-foreground transition-colors">Help Center</a></li>
+              <li><Link to="/faq" className="hover:text-foreground transition-colors">FAQ</Link></li>
+              <li><Link to="/contact" className="hover:text-foreground transition-colors">Contact</Link></li>
+              <li><Link to="/help" className="hover:text-foreground transition-colors">Help Center</Link></li>
             </ul>
           </div>
           
           <div className="space-y-3">
             <h4 className="text-sm font-semibold">Legal</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms" className="hover:text-foreground transition-colors">Terms of Service</a></li>
-              <li><a href="/about" className="hover:text-foreground transition-colors">About Us</a></li>
+              <li><Link to="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:text-foreground transition-colors">Terms of Service</Link></li>
+              <li><Link to="/about" className="hover:text-foreground transition-colors">About Us</Link></li>
             </ul>
           </div>
         </div>

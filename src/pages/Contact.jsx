@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Input } from '../components/ui/input';
@@ -171,9 +172,9 @@ export default function Contact() {
                 <CardTitle>Quick Links</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
-                <div><a href="/faq" className="text-primary hover:underline">Frequently Asked Questions</a></div>
-                <div><a href="/help" className="text-primary hover:underline">Help Center</a></div>
-                <div><a href="/feedback" className="text-primary hover:underline">Submit Feedback</a></div>
+                <div><Link to="/faq" className="text-primary hover:underline">Frequently Asked Questions</Link></div>
+                <div><Link to="/help" className="text-primary hover:underline">Help Center</Link></div>
+                <div><Link to="/feedback" className="text-primary hover:underline">Submit Feedback</Link></div>
               </CardContent>
             </Card>
           </div>

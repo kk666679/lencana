@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 
 export default function FAQ() {
@@ -68,9 +69,9 @@ export default function FAQ() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <a href="/contact" className="text-primary hover:underline font-medium">
+              <Link to="/contact" className="text-primary hover:underline font-medium">
                 Contact Support →
-              </a>
+              </Link>
             </CardContent>
           </Card>
         </div>

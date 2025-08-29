@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Users, Target, Award, BookOpen } from 'lucide-react';
@@ -178,12 +179,12 @@ export default function About() {
                   Built with ❤️ for Malaysian Education by educators, for educators and students nationwide.
                 </p>
                 <div className="flex justify-center gap-4">
-                  <a href="/badges" className="text-primary hover:underline font-medium">
+                  <Link to="/badges" className="text-primary hover:underline font-medium">
                     Explore Badges →
-                  </a>
-                  <a href="/contact" className="text-primary hover:underline font-medium">
+                  </Link>
+                  <Link to="/contact" className="text-primary hover:underline font-medium">
                     Get in Touch →
-                  </a>
+                  </Link>
                 </div>
               </div>
             </CardContent>
