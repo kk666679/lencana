@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useBadges } from '../../hooks/useBadges';
-import { useProgress } from '../../hooks/useProgress';
+import { useBadges } from '../hooks/useBadges';
+import { useProgress } from '../hooks/useProgress';
 
 export default function BadgeExplorer() {
   const [filters, setFilters] = useState({ category: 'All', rarity: 'All' });

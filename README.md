@@ -1,9 +1,10 @@
 # Lencana Malaysia: Cross-Curricular 3D Badges LMS Platform 🇲🇾
 
-**A Cross-Curricular 3D Badges for Learning Management System Platform to Inspire National Identity and Holistic Education**
+**A Cross-Curricular 3D Badges Learning Management System Platform to Inspire National Identity and Holistic Education**
 
-An innovative Learning Management System (LMS) module that integrates 3D interactive badge-based learning to foster national identity and holistic education. Designed to align with Malaysia's national curriculum (KSSR & KSSM), this platform uses gamification, immersive storytelling, and digital representations of national honours to make civic values and multidisciplinary learning engaging and meaningful.
+An innovative Learning Management System (LMS) that integrates 3D interactive badge-based learning to foster national identity and holistic education. Designed to align with Malaysia's national curriculum (KSSR & KSSM), this platform uses gamification, immersive storytelling, and digital representations of Malaysian national honours to make civic values and multidisciplinary learning engaging and meaningful.
 
+**Version:** 2.0.0 - Cross-Curricular LMS Platform  
 **Live Demo:** [https://lencana-malaysia.vercel.app/](https://lencana-malaysia.vercel.app/)
 
 ---
@@ -12,38 +13,68 @@ An innovative Learning Management System (LMS) module that integrates 3D interac
 *Caption: Explore the rich history of Malaysian honors and track your learning progress.*
 
 ## 📚 Table of Contents
-- [What is This?](#-what-is-this)
-- [Gamified Learning Features](#-gamified-learning-features-the-fun-part)
-- [Core Functionality](#-core-functionality)
+- [Platform Overview](#-platform-overview)
+- [Cross-Curricular Features](#-cross-curricular-features)
+- [Architecture](#-architecture)
 - [Getting Started](#-getting-started)
+- [Curriculum Alignment](#-curriculum-alignment)
 - [Tech Stack](#-tech-stack)
-- [New Features](#-new-features)
-- [Project Roadmap](#-project-roadmap-whats-next)
+- [Documentation](#-documentation)
 - [Contributing](#-contributing)
 - [License](#-license)
-- [Acknowledgments](#-acknowledgments)
-- [Contact & Support](#-contact--support)
 
-## 🎯 What is This?
+## 🎯 Platform Overview
 
-Lencana Malaysia is not just an information repository; it's a gamified learning platform. We make understanding national honors—like the **Seri Maharaja Mangku Negara (SMN)** or **Pingat Jasa Malaysia (PJM)**—fun and memorable. Users progress through levels, complete quizzes, earn virtual badges, and build a personal collection, all while deepening their appreciation for Malaysian heritage.
+Lencana Malaysia is a comprehensive **Cross-Curricular Learning Management System** that transforms Malaysian national honours education into an engaging, multi-subject learning experience. The platform integrates authentic Malaysian badges like **Datuk Seri Maharaja Lela**, **Pingat Jasa Malaysia (PJM)**, and **Kesatria Mangku Negara (KMN)** with curriculum-aligned activities spanning 14 subjects.
 
-## 🕹️ Gamified Learning Features (The Fun Part!)
+### 🎯 Key Objectives
+- **Integrate National Identity** into daily learning across all subjects
+- **Foster Cross-Curricular Connections** between History, Languages, Science, and Moral Education
+- **Champion Values-Based Education** through Rukun Negara and ethical principles
+- **Modernize Heritage Education** with 3D visualization and gamified learning
 
-| Feature | Description | Preview |
-| :--- | :--- | :--- |
-| **🏆 Badge Collection** | Unlock and collect digital versions of the badges you learn about. Your digital showcase grows with your knowledge. | ![Collection View](https://via.placeholder.com/150?text=Collection+) |
-| **📈 Progress & Levels** | Start as a 'Rookie' and advance to become a 'History Scholar'. Level up by reading, taking quizzes, and completing challenges. | ![Progress Bar](https://via.placeholder.com/400x50?text=Level+3+-+History+Enthusiast) |
-| **✅ Interactive Quizzes** | Test your knowledge after each module. Earn points for correct answers and unlock exclusive trivia cards. | ![Quiz Modal](https://via.placeholder.com/300x200?text=Quiz+Time!) |
-| **🪙 Point System** | Earn "Merdeka Points" for every action—viewing a badge, passing a quiz, or completing a daily login streak. | ![Points Earned](https://via.placeholder.com/200x100?text=+50+Merdeka+Points!) |
-| **🏅 Achievements** | Go beyond badges. Earn special achievements for milestones like "Completed All Quizzes" or "Collection Completest". | ![Achievements](https://via.placeholder.com/150?text=Achievement+) |
+## 🎓 Cross-Curricular Features
 
-## 📖 Core Functionality
+### 📚 Subject Integration (14 Subjects Covered)
+| Subject Area | Learning Activities | Assessment Methods |
+|--------------|--------------------|-----------------|
+| **Bahasa Malaysia & English** | Bilingual essays, speeches, and presentations on national service | Structured writing assessments and oral presentations |
+| **Sejarah (History)** | Research historical recipients and independence contributions | Timeline creation and critical analysis projects |
+| **Pendidikan Sivik/Moral** | Analyze values of courage, sacrifice, and unity in badge recipients | Reflection essays and community service projects |
+| **Science & Mathematics** | Research Malaysian scientists and analyze development statistics | Data analysis projects and scientific research reports |
+| **ICT & Design Technology** | Create digital portfolios and 3D badge prototypes | Digital project submissions and design presentations |
+| **Visual Arts & Music** | Design artistic interpretations and cultural expressions | Creative portfolio development and cultural presentations |
 
-* **Comprehensive Database**: Browse a detailed catalog of Malaysian badges with high-quality images and historical context.
-* **Smart Filtering**: Easily find badges by **Type** (e.g., Federal, Military, Service), **Category**, or by searching by name.
-* **Detailed Badge Views**: Each badge has its own page with deep historical background, award criteria, notable recipients, and symbolic meaning.
-* **Responsive PWA**: Works seamlessly on any device—phone, tablet, or desktop. You can even install it as an app for offline access.
+### 🎯 Learning Outcomes
+- **KSSR Alignment**: Primary curriculum themes and standards
+- **KSSM Alignment**: Secondary curriculum integration
+- **Cross-Curricular Skills**: Critical thinking, research, and communication
+- **Values Education**: Rukun Negara principles and national identity
+
+## 🏢 Architecture
+
+### 💻 System Components
+```
+lencana-malaysia/
+├── frontend/          # React + Vite frontend application
+│   ├── src/
+│   │   ├── components/   # UI components (CurriculumDashboard, BadgeExplorer)
+│   │   ├── data/         # Curriculum-aligned badge data
+│   │   └── assets/       # 3D models and badge images
+│   ├── hooks/          # React hooks for data management
+│   └── lib/            # API client and utilities
+├── backend/           # Express.js API server
+│   ├── routes/        # API endpoints (badges, curriculum, progress)
+│   └── server.js      # Main server configuration
+└── docs/              # Documentation and guides
+```
+
+### 🔄 Key Features
+- **Curriculum Dashboard**: Teacher interface with KSSR/KSSM alignment tracking
+- **Badge Explorer**: Student interface for interactive 3D badge exploration
+- **Assessment System**: Progress tracking and cross-curricular evaluation
+- **Multi-Language Support**: Bahasa Malaysia, English, Mandarin, Tamil ready
+- **Offline Capability**: PWA functionality for rural and low-connectivity areas
 
 ## 🚀 Getting Started
 
@@ -52,82 +83,97 @@ Lencana Malaysia is not just an information repository; it's a gamified learning
 * A modern web browser (Chrome, Firefox, Safari, Edge)
 * Node.js 18+ (if running locally)
 
-### Running Locally
+### Quick Start
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/lencana-malaysia.git
-   cd lencana-malaysia
+   git clone https://github.com/kk666679/lencana.git
+   cd lencana
    ```
 
-2. **Install dependencies**
+2. **Install all dependencies**
    ```bash
-   npm install
-   # or
-   yarn install
+   npm run install:all
    ```
 
-3. **Run the development server**
+3. **Start development servers**
    ```bash
-   npm run dev
-   # or
-   yarn dev
+   npm run dev:full    # Starts both frontend and backend
+   # OR separately:
+   npm run dev         # Frontend only (port 5173)
+   npm run backend:dev # Backend only (port 3001)
    ```
 
-4. **Open your browser**
-   Navigate to `http://localhost:3000`. You're ready to start exploring and earning!
+4. **Access the platform**
+   - **Frontend**: http://localhost:5173
+   - **Backend API**: http://localhost:3001/api
 
-### Building for Production
+### Production Deployment
 
 ```bash
 npm run build
-npm start
+npm run preview
 ```
 
 ## 🛠️ Tech Stack
 
-* **Framework**: Next.js (App Router)
-* **Language**: React, JavaScript/TypeScript
-* **Styling**: Modern CSS (Flexbox/Grid)
-* **Deployment**: Vercel
-* **Gamification**: Custom state management (context/hooks) for user progress and achievements.
+### Frontend
+* **Framework**: React 19 + Vite
+* **UI Components**: Radix UI + Tailwind CSS
+* **3D Graphics**: Three.js + React Three Fiber
+* **State Management**: React Hooks + Context API
 
-## 📱 New Features
+### Backend
+* **Runtime**: Node.js + Express.js
+* **API**: RESTful endpoints for curriculum management
+* **Data**: JSON-based curriculum and badge data
+* **Authentication**: Ready for integration
 
-- **Android and iOS Support**: The application is now available on both Android and iOS platforms, allowing users to explore and learn about Malaysian honors on their mobile devices.
+### Deployment
+* **Frontend**: Vercel/Netlify compatible
+* **Backend**: Node.js hosting (Railway, Render, etc.)
+* **Database**: Ready for PostgreSQL/MongoDB integration
 
-## 🧭 Project Roadmap (What's Next?)
+## 📚 Curriculum Alignment
 
-- [ ] **Multiplayer & Social Features**: Add friends, compare collections, and work on group challenges.
-- [ ] **Audio Narrations**: Listen to the stories behind the badges.
-- [ ] **AR Viewer**: "Place" a 3D model of a badge in your room using augmented reality.
-- [ ] **Timeline Challenges**: Play through historical events where these awards were given.
-- [x] **Phase 1 Completed - Ready for Testing**
-- [ ] **Integrate badges with History curriculum**
-- [ ] **Integrate badges with Science curriculum**  
-- [ ] **Integrate badges with Language Arts curriculum**
-- [ ] **Integrate badges with Moral Education curriculum**
-- [ ] **Create cross-curricular badge challenges**
-- [ ] **Implement quiz system for badge earning**
-- [ ] **Create point system and achievement tracking**
-- [ ] **Develop user profile with badge collection display**
-- [ ] **Add social features (badge sharing, comparisons)**
-- [ ] **3D badge viewer implementation**
-- [ ] **Offline functionality for PWA**
-- [ ] **Multi-language support (BM, English, Mandarin, Tamil)**
-- [ ] **Teacher dashboard for badge management**
+### KSSR (Primary) Integration
+- **Tahun 1-3**: Basic national identity and community values
+- **Tahun 4-6**: Historical awareness and civic responsibility
+- **Cross-Curricular Themes**: Unity, heritage, and national pride
+
+### KSSM (Secondary) Integration
+- **Tingkatan 1-3**: Advanced historical analysis and critical thinking
+- **Tingkatan 4-5**: Research projects and community leadership
+- **Assessment Standards**: Aligned with national curriculum objectives
+
+### Subject Coverage
+| Education Level | Subjects Integrated | Learning Outcomes |
+|----------------|--------------------|-----------------|
+| **Primary (KSSR)** | BM, English, Sejarah, Pendidikan Sivik | Basic national identity, community values |
+| **Secondary (KSSM)** | All 14 subjects | Advanced analysis, research skills, leadership |
+
+## 📝 Documentation
+
+- **[Implementation Guide](docs/README_IMPLEMENTATION.md)** - Technical setup and architecture
+- **[Curriculum Alignment](docs/CURRICULUM_ALIGNMENT.md)** - Detailed KSSR/KSSM integration
+- **[Cleanup Summary](docs/CLEANUP_SUMMARY.md)** - Project optimization details
 
 ## 🤝 Contributing
 
-We believe learning is better together! Contributions are highly welcome. Whether you have ideas for new gamification elements, more historical data, or code improvements, please feel free to:
+We welcome contributions to enhance the Cross-Curricular LMS Platform! Areas for contribution:
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- **Curriculum Content**: Additional Malaysian national honours and historical context
+- **Cross-Curricular Activities**: New learning activities for different subjects
+- **Assessment Tools**: Rubrics and evaluation methods for teachers
+- **Localization**: Multi-language support (BM, English, Mandarin, Tamil)
+- **Technical Improvements**: Performance optimization and new features
 
-Please read `CONTRIBUTING.md` for details on our code of conduct.
+### Development Workflow
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/curriculum-enhancement`)
+3. Commit changes (`git commit -m 'Add new curriculum activities'`)
+4. Push to branch (`git push origin feature/curriculum-enhancement`)
+5. Open Pull Request
 
 ## 📜 License
 
@@ -139,9 +185,10 @@ This project is licensed under the **MIT License** - see the [LICENSE.md](LICENS
 * The open-source community for the invaluable tools and libraries that power this project.
 * All contributors and history enthusiasts who help preserve and share this knowledge.
 
-## 📞 Contact & Support
+---
 
-Have a question, found a bug, or have an idea to make learning even more fun?
+**Built with ❤️ for Malaysian Education**  
+*Inspiring National Identity and Holistic Education through Cross-Curricular 3D Badges*
 
-* **Open an Issue**: [GitHub Issues](https://github.com/your-username/lencana-malaysia/issues)
-* **Email Us**: [team@lencana-malaysia.my](mailto:team@lencana-malaysia.my)
+**Repository**: [https://github.com/kk666679/lencana](https://github.com/kk666679/lencana)  
+**Version**: 2.0.0 - Cross-Curricular LMS Platform
