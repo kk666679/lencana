@@ -20,6 +20,7 @@ import ModuleViewer from './components/ModuleViewer';
 import BadgeStudio from './pages/BadgeStudio';
 import UserDashboard from './pages/UserDashboard';
 import UserSettings from './pages/UserSettings';
+import Achievements from './pages/Achievements';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -80,6 +81,16 @@ function AnimatedRoutes() {
         <Route path="/studio" element={<BadgeStudio />} />
         <Route path="/dashboard" element={<UserDashboard />} />
         <Route path="/settings" element={<UserSettings />} />
+        <Route path="/achievements" element={
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Achievements />
+          </motion.div>
+        } />
       </Routes>
     </AnimatePresence>
   );
