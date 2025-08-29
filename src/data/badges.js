@@ -12,7 +12,7 @@ export const badges = [
     ],
     color: '#FFD700',
     image: '/src/assets/achiever_badge.png',
-    model: '/src/assets/achiever_badge.glb',
+    model: '/models/achiever_badge.glb',
     category: 'National Identity',
     rarity: 'Legendary',
     points: 500,
@@ -60,7 +60,7 @@ export const badges = [
     ],
     color: '#FF8C00',
     image: '/src/assets/collaborator_badge.png',
-    model: '/src/assets/collaborator_badge.glb',
+    model: '/models/collaborator_badge.glb',
     category: 'Teamwork',
     rarity: 'Common',
     points: 150
@@ -78,7 +78,7 @@ export const badges = [
     ],
     color: '#8A2BE2',
     image: '/src/assets/innovator_badge.png',
-    model: '/src/assets/innovator_badge.glb',
+    model: '/models/innovator_badge.glb',
     category: 'Innovation',
     rarity: 'Rare',
     points: 200
@@ -96,7 +96,7 @@ export const badges = [
     ],
     color: '#DC143C',
     image: '/src/assets/community_leader_badge.png',
-    model: '/src/assets/community_leader_badge.glb',
+    model: '/models/community_leader_badge.glb',
     category: 'Leadership',
     rarity: 'Epic',
     points: 300
@@ -114,7 +114,7 @@ export const badges = [
     ],
     color: '#228B22',
     image: '/src/assets/mentor_badge.png',
-    model: '/src/assets/mentor_badge.glb',
+    model: '/models/mentor_badge.glb',
     category: 'Service',
     rarity: 'Rare',
     points: 250
@@ -132,7 +132,7 @@ export const badges = [
     ],
     color: '#FFD700',
     image: '/src/assets/achiever_badge.png',
-    model: '/src/assets/achiever_badge.glb',
+    model: '/models/achiever_badge.glb',
     category: 'Achievement',
     rarity: 'Legendary',
     points: 500

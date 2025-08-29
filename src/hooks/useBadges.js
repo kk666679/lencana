@@ -1,26 +1,54 @@
 import { useState, useEffect } from 'react';
-import { badges } from '../data/badges';
+import { apiClient } from '../lib/api';
 
 export function useBadges(filters = {}) {
-  const [filteredBadges, setFilteredBadges] = useState([]);
+  const [badges, setBadges] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
-    
-    let result = badges;
-    
-    if (filters.category && filters.category !== 'All') {
-      result = result.filter(badge => badge.category === filters.category);
-    }
-    
-    if (filters.rarity && filters.rarity !== 'All') {
-      result = result.filter(badge => badge.rarity === filters.rarity);
-    }
-    
-    setFilteredBadges(result);
-    setLoading(false);
+    const fetchBadges = async () => {
+      try {
+        setLoading(true);
+        const data = await apiClient.getBadges(filters);
+        setBadges(data);
+        setError(null);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBadges();
   }, [JSON.stringify(filters)]);
 
-  return { badges: filteredBadges, loading };
+  return { badges, loading, error };
+}
+
+export function useBadge(id) {
+  const [badge, setBadge] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (!id) return;
+
+    const fetchBadge = async () => {
+      try {
+        setLoading(true);
+        const data = await apiClient.getBadge(id);
+        setBadge(data);
+        setError(null);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBadge();
+  }, [id]);
+
+  return { badge, loading, error };
 }

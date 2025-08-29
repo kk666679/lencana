@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
-import { Menu, X, Moon, Sun, Trophy } from 'lucide-react';
-import { useDarkMode } from '../../hooks/useDarkMode';
+import { Menu, X, Trophy } from 'lucide-react';
+import ThemeToggle from '../ThemeToggle';
+import LanguageToggle from '../LanguageToggle';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useDarkMode();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -31,14 +31,8 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => setIsDark(!isDark)}
-            className="p-2"
-          >
-            {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </Button>
+          <LanguageToggle />
+          <ThemeToggle />
           <Link to="/login">
             <Button variant="ghost" size="sm">Log In</Button>
           </Link>
@@ -72,15 +66,10 @@ export default function Header() {
             <Link to="/faq" className="block text-sm font-medium hover:text-primary">FAQ</Link>
             <Link to="/contact" className="block text-sm font-medium hover:text-primary">Contact</Link>
             <div className="pt-3 space-y-2">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsDark(!isDark)}
-                className="w-full flex items-center gap-2"
-              >
-                {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-                {isDark ? 'Light Mode' : 'Dark Mode'}
-              </Button>
+              <div className="flex items-center justify-between px-4 py-2">
+                <LanguageToggle />
+                <ThemeToggle />
+              </div>
               <Link to="/login">
                 <Button variant="ghost" size="sm" className="w-full">Log In</Button>
               </Link>

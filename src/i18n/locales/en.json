@@ -8,7 +8,11 @@
     "view": "View",
     "loading": "Loading...",
     "error": "Error",
-    "success": "Success"
+    "success": "Success",
+    "close": "Close",
+    "next": "Next",
+    "previous": "Previous",
+    "retry": "Retry"
   },
   "nav": {
     "home": "Home",
@@ -70,6 +74,42 @@
     "preferences": "Preferences",
     "language": "Language",
     "theme": "Theme"
+  },
+  "achievements": {
+    "title": "Achievements",
+    "subtitle": "Track your learning progress and unlock new badges",
+    "stats": {
+      "unlocked": "Unlocked",
+      "inProgress": "In Progress",
+      "totalPoints": "Total Points",
+      "total": "Total"
+    },
+    "search": "Search achievements...",
+    "filters": {
+      "category": "Category",
+      "status": "Status",
+      "unlocked": "Unlocked",
+      "locked": "Locked"
+    },
+    "progress": "Progress",
+    "requirement": "Requirement"
+  },
+  "about": {
+    "title": "About Lencana Malaysia",
+    "subtitle": "Inspiring Malaysian students through immersive, gamified 3D badge learning",
+    "mission": "Our Mission",
+    "heritage": {
+      "title": "Malaysian Heritage",
+      "description": "Embracing our national identity through culturally relevant learning experiences"
+    },
+    "education": {
+      "title": "Educational Alignment",
+      "description": "Designed in harmony with KSSR and KSSM curricula for structured, holistic education"
+    },
+    "gamification": {
+      "title": "Gamified Progress",
+      "description": "Track learning through interactive 3D badges and achievement milestones"
+    }
   },
   "hero": {
     "title": "Lencana Malaysia",

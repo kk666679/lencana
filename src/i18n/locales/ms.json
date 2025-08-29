@@ -71,6 +71,42 @@
     "language": "Bahasa",
     "theme": "Tema"
   },
+  "achievements": {
+    "title": "Pencapaian",
+    "subtitle": "Jejaki kemajuan pembelajaran anda dan buka lencana baharu",
+    "stats": {
+      "unlocked": "Dibuka",
+      "inProgress": "Dalam Kemajuan",
+      "totalPoints": "Jumlah Mata",
+      "total": "Jumlah"
+    },
+    "search": "Cari pencapaian...",
+    "filters": {
+      "category": "Kategori",
+      "status": "Status",
+      "unlocked": "Dibuka",
+      "locked": "Dikunci"
+    },
+    "progress": "Kemajuan",
+    "requirement": "Keperluan"
+  },
+  "about": {
+    "title": "Tentang Lencana Malaysia",
+    "subtitle": "Menginspirasi pelajar Malaysia melalui pembelajaran lencana 3D yang mendalam dan gamifikasi",
+    "mission": "Misi Kami",
+    "heritage": {
+      "title": "Warisan Malaysia",
+      "description": "Merangkul identiti kebangsaan kita melalui pengalaman pembelajaran yang relevan dengan budaya"
+    },
+    "education": {
+      "title": "Penjajaran Pendidikan",
+      "description": "Direka selaras dengan kurikulum KSSR dan KSSM untuk pendidikan berstruktur dan holistik"
+    },
+    "gamification": {
+      "title": "Kemajuan Gamifikasi",
+      "description": "Jejaki pembelajaran melalui lencana 3D interaktif dan pencapaian penting"
+    }
+  },
   "hero": {
     "title": "Lencana Malaysia",
     "subtitle": "Sistem Pengurusan Pembelajaran Lencana 3D Merentas Kurikulum",

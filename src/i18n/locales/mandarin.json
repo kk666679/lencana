@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "home": "首页",
+    "badges": "徽章",
+    "curriculum": "课程",
+    "achievements": "成就",
+    "about": "关于",
+    "contact": "联系",
+    "login": "登录",
+    "signup": "注册"
+  },
+  "hero": {
+    "title": "马来西亚徽章",
+    "subtitle": "通过3D徽章学习体验赋能马来西亚学生",
+    "cta": "开始学习"
+  },
+  "badges": {
+    "title": "徽章收藏",
+    "categories": {
+      "all": "全部",
+      "academic": "学术卓越",
+      "teamwork": "团队合作",
+      "innovation": "创新",
+      "leadership": "领导力",
+      "service": "服务",
+      "achievement": "成就"
+    },
+    "rarity": {
+      "common": "普通",
+      "rare": "稀有",
+      "epic": "史诗",
+      "legendary": "传奇"
+    }
+  },
+  "achievements": {
+    "title": "成就",
+    "subtitle": "跟踪您的学习进度并解锁新徽章",
+    "stats": {
+      "unlocked": "已解锁",
+      "inProgress": "进行中",
+      "totalPoints": "总积分",
+      "total": "总计"
+    },
+    "search": "搜索成就...",
+    "filters": {
+      "category": "类别",
+      "status": "状态",
+      "unlocked": "已解锁",
+      "locked": "已锁定"
+    },
+    "progress": "进度",
+    "requirement": "要求"
+  },
+  "curriculum": {
+    "title": "课程仪表板",
+    "subjects": "科目",
+    "levels": "级别"
+  },
+  "about": {
+    "title": "关于马来西亚徽章",
+    "subtitle": "通过沉浸式、游戏化的3D徽章学习激励马来西亚学生",
+    "mission": "我们的使命",
+    "heritage": {
+      "title": "马来西亚传统",
+      "description": "通过文化相关的学习体验拥抱我们的民族认同"
+    },
+    "education": {
+      "title": "教育对齐",
+      "description": "与KSSR和KSSM课程和谐设计，实现结构化、全面的教育"
+    },
+    "gamification": {
+      "title": "游戏化进度",
+      "description": "通过互动3D徽章和成就里程碑跟踪学习"
+    }
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "发生错误",
+    "retry": "重试",
+    "save": "保存",
+    "cancel": "取消",
+    "close": "关闭",
+    "next": "下一个",
+    "previous": "上一个",
+    "submit": "提交"
+  }
+}

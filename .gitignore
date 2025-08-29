@@ -6,6 +6,7 @@ node_modules/
 dist/
 build/
 .next/
+out/
 
 # Environment variables
 .env
@@ -19,6 +20,7 @@ build/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+logs/
 
 # Runtime data
 pids
@@ -26,14 +28,16 @@ pids
 *.seed
 *.pid.lock
 
-# Coverage directory used by tools like istanbul
+# Coverage directory
 coverage/
+.nyc_output/
 
 # IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
+*.sublime-*
 
 # OS generated files
 .DS_Store
@@ -44,13 +48,35 @@ coverage/
 ehthumbs.db
 Thumbs.db
 
-# Vercel
+# Deployment
 .vercel
+.netlify
 
 # Database
 *.db
 *.sqlite
+*.sqlite3
 
 # Temporary files
 tmp/
 temp/
+*.tmp
+*.temp
+
+# Cache directories
+.cache/
+.parcel-cache/
+.vite/
+
+# Generated files
+src/generated/
+*.generated.*
+
+# Test files
+__tests__/coverage/
+test-results/
+
+# Package manager
+.pnpm-debug.log*
+.yarn/
+.pnp.*

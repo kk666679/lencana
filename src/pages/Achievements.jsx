@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Search, Filter, Trophy, Lock, Clock, Star } from 'lucide-react';
 import '../styles/achievements.css';
 
@@ -77,6 +78,7 @@ const categories = ['All', 'Culture', 'Science', 'Mathematics', 'Language', 'His
 const statusFilters = ['All', 'Unlocked', 'In Progress', 'Locked'];
 
 export default function Achievements() {
+  const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedStatus, setSelectedStatus] = useState('All');
@@ -111,10 +113,10 @@ export default function Achievements() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
-            Achievements
+            {t('achievements.title')}
           </h1>
           <p className="text-gray-600 dark:text-gray-400">
-            Track your learning progress and unlock new badges
+            {t('achievements.subtitle')}
           </p>
         </div>
 
@@ -123,28 +125,28 @@ export default function Achievements() {
           <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm">
             <div className="flex items-center gap-2">
               <Trophy className="w-5 h-5 text-yellow-500" />
-              <span className="text-sm text-gray-600 dark:text-gray-400">Unlocked</span>
+              <span className="text-sm text-gray-600 dark:text-gray-400">{t('achievements.stats.unlocked')}</span>
             </div>
             <p className="text-2xl font-bold text-gray-900 dark:text-white">{stats.unlocked}</p>
           </div>
           <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm">
             <div className="flex items-center gap-2">
               <Clock className="w-5 h-5 text-blue-500" />
-              <span className="text-sm text-gray-600 dark:text-gray-400">In Progress</span>
+              <span className="text-sm text-gray-600 dark:text-gray-400">{t('achievements.stats.inProgress')}</span>
             </div>
             <p className="text-2xl font-bold text-gray-900 dark:text-white">{stats.inProgress}</p>
           </div>
           <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm">
             <div className="flex items-center gap-2">
               <Star className="w-5 h-5 text-purple-500" />
-              <span className="text-sm text-gray-600 dark:text-gray-400">Total Points</span>
+              <span className="text-sm text-gray-600 dark:text-gray-400">{t('achievements.stats.totalPoints')}</span>
             </div>
             <p className="text-2xl font-bold text-gray-900 dark:text-white">{stats.totalPoints}</p>
           </div>
           <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm">
             <div className="flex items-center gap-2">
               <Filter className="w-5 h-5 text-green-500" />
-              <span className="text-sm text-gray-600 dark:text-gray-400">Total</span>
+              <span className="text-sm text-gray-600 dark:text-gray-400">{t('achievements.stats.total')}</span>
             </div>
             <p className="text-2xl font-bold text-gray-900 dark:text-white">{stats.total}</p>
           </div>
@@ -158,7 +160,7 @@ export default function Achievements() {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
               <input
                 type="text"
-                placeholder="Search achievements..."
+                placeholder={t('achievements.search')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -213,6 +215,8 @@ export default function Achievements() {
 }
 
 function AchievementCard({ achievement }) {
+  const { t } = useTranslation();
+  
   const getStatusColor = (status) => {
     switch (status) {
       case 'unlocked': return 'text-green-600 bg-green-100 dark:bg-green-900/20';
@@ -257,7 +261,7 @@ function AchievementCard({ achievement }) {
         {achievement.status !== 'locked' && (
           <div className="mb-4">
             <div className="flex justify-between text-xs text-gray-600 dark:text-gray-400 mb-1">
-              <span>Progress</span>
+              <span>{t('achievements.progress')}</span>
               <span>{achievement.progress}%</span>
             </div>
             <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
@@ -297,7 +301,7 @@ function AchievementCard({ achievement }) {
         )}
         {achievement.status === 'locked' && achievement.requirement && (
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-            Requirement: {achievement.requirement}
+            {t('achievements.requirement')}: {achievement.requirement}
           </p>
         )}
       </div>

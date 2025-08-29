@@ -3,6 +3,8 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import en from './locales/en.json';
 import ms from './locales/ms.json';
+import tamil from './locales/tamil.json';
+import mandarin from './locales/mandarin.json';
 
 const isDev = import.meta.env.DEV;
 
@@ -12,7 +14,9 @@ i18n
   .init({
     resources: {
       en: { translation: en },
-      ms: { translation: ms }
+      ms: { translation: ms },
+      ta: { translation: tamil },
+      zh: { translation: mandarin }
     },
     lng: localStorage.getItem('lencana-language') || 'en',
     fallbackLng: 'en',
@@ -21,8 +25,12 @@ i18n
       escapeValue: false
     },
     detection: {
-      order: ['localStorage', 'navigator'],
-      caches: ['localStorage']
+      order: ['localStorage', 'navigator', 'htmlTag'],
+      caches: ['localStorage'],
+      lookupLocalStorage: 'lencana-language'
+    },
+    react: {
+      useSuspense: false
     }
   });
 
