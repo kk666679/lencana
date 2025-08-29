@@ -49,7 +49,7 @@ Lencana Malaysia is not just an information repository; it's a gamified learning
 
 ### Prerequisites
 
-* A modern web browser (Chrome, Firbefox, Safari, Edge)
+* A modern web browser (Chrome, Firefox, Safari, Edge)
 * Node.js 18+ (if running locally)
 
 ### Running Locally
