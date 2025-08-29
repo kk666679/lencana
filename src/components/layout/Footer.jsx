@@ -44,7 +44,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 Lencana Malaysia. Built with ❤️ for Malaysian Education.</p>
+          <p>&copy; 2025 Lencana Malaysia. Built with ❤️ for Malaysian Education.</p>
         </div>
       </div>
     </footer>

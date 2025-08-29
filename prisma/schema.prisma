@@ -1,0 +1,121 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  avatar    String?
+  role      String   @default("student")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  badges    UserBadge[]
+  progress  Progress[]
+  modules   Module[]
+  analytics ModuleAnalytics[]
+}
+
+model Badge {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  category    String
+  rarity      String
+  points      Int
+  imageUrl    String?
+  modelUrl    String?
+  createdAt   DateTime @default(now())
+  
+  users       UserBadge[]
+  requirements BadgeRequirement[]
+}
+
+model UserBadge {
+  id       String   @id @default(cuid())
+  userId   String
+  badgeId  String
+  earnedAt DateTime @default(now())
+  
+  user     User     @relation(fields: [userId], references: [id])
+  badge    Badge    @relation(fields: [badgeId], references: [id])
+  
+  @@unique([userId, badgeId])
+}
+
+model Progress {
+  id       String @id @default(cuid())
+  userId   String
+  subject  String
+  topic    String
+  score    Int
+  maxScore Int
+  
+  user     User   @relation(fields: [userId], references: [id])
+  
+  @@unique([userId, subject, topic])
+}
+
+model BadgeRequirement {
+  id          String @id @default(cuid())
+  badgeId     String
+  requirement String
+  type        String
+  value       Int?
+  
+  badge       Badge  @relation(fields: [badgeId], references: [id])
+}
+
+model Module {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  content     String
+  subject     String
+  gradeLevel  String
+  difficulty  String
+  tags        String[]
+  fileUrls    String[]
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  creatorId   String
+  creator     User     @relation(fields: [creatorId], references: [id])
+  
+  quizzes     Quiz[]
+  analytics   ModuleAnalytics[]
+}
+
+model Quiz {
+  id        String   @id @default(cuid())
+  moduleId  String
+  title     String
+  questions String
+  answers   String
+  points    Int      @default(10)
+  createdAt DateTime @default(now())
+  
+  module    Module   @relation(fields: [moduleId], references: [id])
+}
+
+model ModuleAnalytics {
+  id           String   @id @default(cuid())
+  moduleId     String
+  userId       String
+  timeSpent    Int      @default(0)
+  completed    Boolean  @default(false)
+  score        Int?
+  accessedAt   DateTime @default(now())
+  
+  module       Module   @relation(fields: [moduleId], references: [id])
+  user         User     @relation(fields: [userId], references: [id])
+  
+  @@unique([moduleId, userId])
+}

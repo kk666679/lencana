@@ -1,10 +1,9 @@
-# Node.js
-node_modules/
+# Node.js       
 npm-debug.log
 yarn-error.log
+node_modules/
 
 # Next.js
-.next/
 out/
 *.log
 *.env.local
@@ -14,3 +13,6 @@ out/
 
 # Build output
 dist/
+.vercel
+
+/src/generated/prisma

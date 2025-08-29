@@ -1,0 +1,44 @@
+{
+  "common": {
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "nav": {
+    "home": "Home",
+    "badges": "Badges",
+    "curriculum": "Curriculum",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "signup": "Sign Up",
+    "dashboard": "Dashboard",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "welcome": "Welcome back",
+    "modules": "Modules",
+    "badges": "Badges",
+    "points": "Points",
+    "streak": "Day Streak",
+    "quickActions": "Quick Actions",
+    "recentActivity": "Recent Activity",
+    "recentBadges": "Recent Badges",
+    "subjectProgress": "Subject Progress"
+  },
+  "settings": {
+    "account": "Account",
+    "privacy": "Privacy",
+    "notifications": "Notifications",
+    "appearance": "Appearance",
+    "security": "Security",
+    "connections": "Connections",
+    "saveChanges": "Save Changes"
+  }
+}

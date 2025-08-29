@@ -1,8 +1,9 @@
 const express = require('express');
+const { neon } = require('@neondatabase/serverless');
+const { authenticateUser, authorizeRole } = require('../middleware/auth');
 const router = express.Router();
 
-// Import badges from frontend data
-const { badges } = require('../../src/data/badges.js');
+const sql = neon(process.env.DATABASE_URL);
 
 // Convert ES6 export to CommonJS for backend compatibility
 const badgesData = [
@@ -117,19 +118,28 @@ const badgesData = [
 ];
 
 // GET /api/badges - Get all badges
-router.get('/', (req, res) => {
-  const { category, rarity } = req.query;
-  let filteredBadges = badgesData;
-  
-  if (category && category !== 'All') {
-    filteredBadges = filteredBadges.filter(badge => badge.category === category);
+router.get('/', async (req, res) => {
+  try {
+    const { category, rarity } = req.query;
+    let query = 'SELECT * FROM badges WHERE 1=1';
+    const params = [];
+
+    if (category && category !== 'All') {
+      query += ' AND category = $' + (params.length + 1);
+      params.push(category);
+    }
+    if (rarity && rarity !== 'All') {
+      query += ' AND rarity = $' + (params.length + 1);
+      params.push(rarity);
+    }
+
+    query += ' ORDER BY created_at DESC';
+    
+    const badges = await sql(query, params);
+    res.json(badges.length > 0 ? badges : badgesData);
+  } catch (error) {
+    res.json(badgesData); // Fallback to static data
   }
-  
-  if (rarity && rarity !== 'All') {
-    filteredBadges = filteredBadges.filter(badge => badge.rarity === rarity);
-  }
-  
-  res.json(filteredBadges);
 });
 
 // GET /api/badges/:id - Get specific badge

@@ -1,0 +1,44 @@
+{
+  "common": {
+    "submit": "Hantar",
+    "cancel": "Batal",
+    "save": "Simpan",
+    "delete": "Padam",
+    "edit": "Edit",
+    "view": "Lihat",
+    "loading": "Memuatkan...",
+    "error": "Ralat",
+    "success": "Berjaya"
+  },
+  "nav": {
+    "home": "Utama",
+    "badges": "Lencana",
+    "curriculum": "Kurikulum",
+    "about": "Tentang",
+    "contact": "Hubungi",
+    "login": "Log Masuk",
+    "signup": "Daftar",
+    "dashboard": "Papan Pemuka",
+    "settings": "Tetapan"
+  },
+  "dashboard": {
+    "welcome": "Selamat kembali",
+    "modules": "Modul",
+    "badges": "Lencana",
+    "points": "mata",
+    "streak": "Hari Berturut",
+    "quickActions": "Tindakan Pantas",
+    "recentActivity": "Aktiviti Terkini",
+    "recentBadges": "Lencana Terkini",
+    "subjectProgress": "Kemajuan Subjek"
+  },
+  "settings": {
+    "account": "Akaun",
+    "privacy": "Privasi",
+    "notifications": "Pemberitahuan",
+    "appearance": "Penampilan",
+    "security": "Keselamatan",
+    "connections": "Sambungan",
+    "saveChanges": "Simpan Perubahan"
+  }
+}
